@@ -46,11 +46,11 @@ class TestComponent extends Component
 $this->clearRateLimit();
 ```
 
-### Custom message error
+### Lang message error (support: en, ru)
+`config/app.php`
 ```php
-$this->templateMessage = 'Слишком много запросов, повторите попытку через :sec: сек.';
+'locale' => 'en',
 ```
-
 
 ## License
 
