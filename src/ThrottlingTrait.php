@@ -7,6 +7,7 @@ use Illuminate\Validation\ValidationException;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\App;
 use Closure;
 
 trait ThrottlingTrait
@@ -17,9 +18,12 @@ trait ThrottlingTrait
     protected int $decaySeconds = 60;
 
     /**
-     * @var string
+     * @var array|string[]
      */
-    protected string $templateMessage = 'Too many requests, try again in :sec: seconds';
+    protected array $throttlingErrorMessage = [
+        'en' => 'Too many requests, try again in :sec seconds.',
+        'ru' => 'Слишком много запросов, повторите попытку через :sec сек.'
+    ];
 
     /**
      * @return string
@@ -46,9 +50,11 @@ trait ThrottlingTrait
 
             if ($callback) $callback();
 
+            $message = $this->throttlingErrorMessage[App::getLocale()] ?? $this->throttlingErrorMessage['en'];
+
             throw ValidationException::withMessages([
-                'throttle' => [Str::replace(':sec:', $secondsUntilAvailable, $this->templateMessage)],
-            ])->status(1021);
+                'throttle' => [Str::replace(':sec', $secondsUntilAvailable, $message)],
+            ]);
         }
 
         RateLimiter::hit($key, $this->decaySeconds);
