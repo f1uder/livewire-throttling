@@ -48,7 +48,7 @@ trait ThrottlingTrait
         if (RateLimiter::tooManyAttempts($key, $maxAttempts)) {
             $secondsUntilAvailable = RateLimiter::availableIn($key);
 
-            if ($callback) $callback();
+            if ($callback) $callback($secondsUntilAvailable);
 
             $message = $this->throttlingErrorMessage[App::getLocale()] ?? $this->throttlingErrorMessage['en'];
 
