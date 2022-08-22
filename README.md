@@ -1,7 +1,6 @@
 # Livewire Throttling
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/f1uder/livewire-throttling.svg?style=flat-square)](https://packagist.org/packages/f1uder/laravel-notification)
-[![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/f1uder/livewire-throttling/Fix%20PHP%20code%20style%20issues?label=code%20style)](https://github.com/f1uder/laravel-notification/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/f1uder/livewire-throttling.svg?style=flat-square)](https://packagist.org/packages/f1uder/laravel-notification)
 
 
@@ -34,7 +33,7 @@ class TestComponent extends Component
     
     public function testCallback()
     {
-        $this->rateLimit('10', function () {
+        $this->rateLimit('10', function ($sec) {
             abort(429);
         });
     }
