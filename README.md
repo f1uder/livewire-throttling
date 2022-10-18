@@ -26,6 +26,10 @@ class TestComponent extends Component
 {
     use ThrottlingTrait; // use Trait
     
+   /**
+    * Thrown out ValidationException
+    * name: throttle
+    */
     public function test()
     {
         $this->rateLimit('10'); // Limit 10 requests per minute
@@ -45,10 +49,12 @@ class TestComponent extends Component
 $this->clearRateLimit();
 ```
 
-### Lang message error (support: en, ru)
-`config/app.php`
+### Lang message error (support: en)
+Add Russian lang
+
+`lang/ru.json`
 ```php
-'locale' => 'en',
+"Too many requests, try again in :sec seconds.": "Слишком много запросов, повторите попытку через :sec сек."
 ```
 
 ## License
