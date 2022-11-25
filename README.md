@@ -1,7 +1,7 @@
 # Livewire Throttling
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/f1uder/livewire-throttling.svg?style=flat-square)](https://packagist.org/packages/f1uder/laravel-notification)
-[![Total Downloads](https://img.shields.io/packagist/dt/f1uder/livewire-throttling.svg?style=flat-square)](https://packagist.org/packages/f1uder/laravel-notification)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/f1uder/livewire-throttling.svg?style=flat-square)](https://packagist.org/packages/f1uder/livewire-throttling)
+[![Total Downloads](https://img.shields.io/packagist/dt/f1uder/livewire-throttling.svg?style=flat-square)](https://packagist.org/packages/f1uder/livewire-throttling)
 
 
 ## Installation
